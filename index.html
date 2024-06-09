@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #000000; /* Dark background color */
+      position: relative;
+      overflow: hidden;
+    }
+
+    .container {
+      position: absolute;
+      bottom: 20px; /* Adjust the bottom distance */
+      left: 50%; /* Center horizontally */
+      transform: translateX(-50%);
+      z-index: 1;
+      display: flex;
+      align-items: center;
+    }
+
+    .github-cats {
+      width: 150px; /* Set width */
+      height: auto; /* Maintain aspect ratio */
+    }
+
+    .github-cats + .github-cats {
+      margin-left: -1px; /* Reduce space between images */
+      transform: scaleX(-1); /* Mirror horizontally */
+    }
+
+    .heart {
+      height: 30px;
+      width: 30px;
+      background: #f20044;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-45deg);
+      box-shadow: 0 0 20px 10px rgba(242, 0, 68, 0.5); /* Larger circular glow effect */
+      animation: heart 0.6s linear infinite;
+    }
+
+    .heart:before {
+      content: ' ';
+      position: absolute;
+      height: 30px;
+      width: 30px;
+      background: #f20044;
+      top: -50%;
+      border-radius: 50px;
+      box-shadow: 0 0 70px 30px rgba(242, 0, 68, 0.5); /* Larger circular glow effect */
+    }
+
+    .heart:after {
+      content: ' ';
+      position: absolute;
+      height: 30px;
+      width: 30px;
+      background: #f20044;
+      right: -50%;
+      border-radius: 50px;
+      box-shadow: 0 0 100px 70px rgba(242, 0, 68, 0.5); /* Larger circular glow effect */
+    }
+
+    @keyframes heart {
+      0% {
+        transform: rotate(-45deg) scale(1.07);
+      }
+      80% {
+        transform: rotate(-45deg) scale(1.0);
+      }
+      100% {
+        transform: rotate(-45deg) scale(0.8);
+      }
+    }
+
+    /* Media queries for mobile screens */
+    @media screen and (max-width: 600px) {
+      .container {
+        bottom: 10px; /* Adjust bottom distance for smaller screens */
+      }
+      .github-cats {
+        width: 100px; /* Decrease image width for smaller screens */
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img class="github-cats" src="https://i.ibb.co/8KCj8dx/cat-backward.jpg" alt="GitHub Cat">
+    <img class="github-cats" src="https://i.ibb.co/8KCj8dx/cat-backward.jpg" alt="GitHub Cat">
+  </div>
+  <div class="heart"></div>
+</body>
+</html>
